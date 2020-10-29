@@ -1,0 +1,41 @@
+.parent{
+  display: grid;
+  grid-template: 1fr auto auto 1fr;
+  background-color: #ffff90;
+}
+
+#data{
+  display: grid;
+  grid-template-rows: auto; 
+}
+
+p{
+  margin: 0;
+  text-align: left;
+}
+
+.info{
+  padding: 5px;
+}
+
+a{
+  width:110px;
+  margin-bottom: 5px;
+}
+.buttons {
+  border: black thin solid;
+  text-decoration: none;
+  color:#DBDBFF;
+  background-color: green;
+  box-shadow: 1px 1px black;
+}
+
+#intro, #signature {
+  color:#DBDBFF;
+  background-color: green;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.alignClass{
+  text-align: center;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SYST24444 Assignment 2</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/main.css">
+
+<style>
+	table#assignmentTable {
+	 width: 70%; margin-left: 15%; margin-right: 15%; text-align: left;
+	 border: thick solid navy; border-collapse: collapse;
+	}
+	table#assignmentTable th, table#assignmentTable td {border: thin solid navy; padding: 10px;}
+</style>
+</head>
+<body>
+<div class="header headfoot">Assignment 2 (10%) / jQuery - AJAX - JSON</div>
+<div>
+	<ul>
+		<li>Create a mobile web site (Create a new folder to hold all files/folders)
+			<ul>
+				<li><strong>index.html</strong></li>
+				<li><strong>css folder</strong> that includes a <em>css</em> file that is named <strong>yourUserName.css</strong> (ex. doej.css)</li>
+				<li><strong>js folder</strong> that includes your <em>personal .js</em> script file that is named using <strong>yourUserName.js</strong> (ex. doej.js) <strong>AND</strong> a link to <strong>jquery.js</strong></li>
+				<li><strong>images folder</strong> to hold any images needed for exercise</li>
+				<li><strong>pages folder</strong> to hold the 2nd page of the assignment called from index.html</li>
+				<li><strong>data folder</strong> to hold the JSON file</li>
+			</ul>
+		</li>
+		<li>Enter <em>YOUR NAME</em> in the &lt;title&gt; tags AND your name and student number in a comment at the top of the index.html</li>
+		<li>Be sure to include the <strong><em>viewport</em></strong> setting in your index.html</li>	
+		
+	
+		<hr>
+		
+		<li>Download this JSON file: <a href="A2-JSONFile.zip" target="_blank">A2-JSONFile.zip</a> unzip and save into your <em>data</em> folder; This is the JSON file you will be using. NOTE: All images/data licensed from https://github.com/team-zoo/ or https://commons.wikimedia.org/wiki/Main_Page</li>
+		<li>Download this zip file of images: <a href="A2-Images.zip" target="_blank">A2-Images.zip</a> and include all images in your <em>images</em> folder</li>
+		<br>
+		<li>Edit the <em>.json</em> file and include your personal information where indicated</li>
+		
+		<li>On load of site (in document.ready):
+			<ul>
+				<li>Retrieve the .json file using an AJAX call ( either $.ajax({}) or $.getJSON({}) )</li>
+				<li>Retrieve your personal information into variables and save to local storage so this information can be used on the second page (For reference, see the ECMA presentation in Module 01)</li>
+				<li>Save the animaltypes ONLY from the JSON file into an array (atype and pic); you can use a Class with a Constructor for this but is not required); Save this array in local storage (remember arrays have to be stringified before saving to local storage)</li>
+				<li>
+					Create an array of animallist using a Class with a Constructor (include all fields); Save this array in local storage (remember arrays have to be stringified before saving to local storage)
+				</li>
+			</ul>
+		</li>
+		<hr>
+		<li>Header area that displays on document load and includes:<br>
+			Line 1: <em>Assignment #2</em><br>
+			Line 2: <em>Your Name / Your Student Number / Your Login Name</em><br>
+			(all must come from variables that hold data from .json file)<br>
+			Line 3: <em>A horizontal line (&lt;hr&gt;)</em><br>
+			This header must be on both pages; <em>(NOTE: Must use Template Literal to build header line)</em></li><br>
+		<li>Footer line that displays on document load and includes:<br> 
+		Line 1: <em>A horizontal line (&lt;hr&gt;)</em><br>
+		Line 2: <em>My Sheridan Program: sheridanProgram </em><br>(program data must come from variable loaded from .json file)<br>
+		Line 3:<em>My Home Country: homeCountry</em> <br>(country data must come from variable loaded from .json file) 
+		<br>This footer must be on both pages; <em>(NOTE: Must use Template Literal to build footer line)</em><br>
+		<strong>Note: Be sure to use an appropriate font size so header and footer lines do not take up too much of the mobile space (for example, do not use &lt;h1&gt; unless you reformat to a smaller font size)</strong></li>
+		<br>
+		
+		<li>Content area on the <strong>main page</strong>:
+			<ul>				
+				<li>
+					Use the animaltypes array built from the JSON file and create a list of anchor links using each <em>animal type (atype)</em> (anchor links must be formatted to look more like buttons); these links will send the user to the 2nd page; these links must be created dynamically in the .js file;<br><br>
+					Underneath or beside each anchor link, display the corresponding image attached to each atype. Images must be created dynamically in the .js file.
+				</li>
+
+				<li>
+					Layout and formatting is your choice but all must fit in the mobile view (Landscape only);
+				</li>
+				<li>
+					Two possible layouts: 
+					<img src="A2-Layout01.png" width="300">&nbsp;&nbsp;
+					<img src="A2-Layout02.png" width="300">
+				</li><br>
+				<li>
+					When a selection is clicked, save <em>animal type (atype) OR the unique ID for the animal type selected</em> chosen to local storage and traverse to the 2nd page
+				</li>
+			</ul>
+		</li>
+		<hr>
+		
+		<li>Content on the <strong>individual page</strong> (a separate page with a separate .js and .css files) will include the following:
+			<ul>
+				<li>Retrieve your personal data, the user's choice of animal, the animal types array and animal list array from local storage</li>
+				<li>Create <strong>Header</strong> and <strong>Footer</strong> as on main page pulling data from variables retrieved from local storage in the same format as on the main page</li>
+				<li>Under the header, display the <strong>animal type (atype)</strong> chosen as a sub-header</li>
+				<li>Use the animal type (atype) picked (actual type name such as 'Mammal' or use unique ID to find atype from the animaltypes array depending on how what you saved to local storage) and the animallist array data to create a list of all items for the specific animal type chosen displaying all the data </li>
+				<li>
+				Hint: When comparing the animal type (atype) from local storage brought into a variable to the <em>type</em> in each individual line in the animal list array, notice that one has a capital letter (Mammals) to start and the other is all lowercase (mammal). You might need to uppercase or lowercase both before comparing.
+				</li>
+				<li>Formatting must be used and layout of data is your choice; this page can have scrolling but not excessive (<mark>make sure images are mobile size</mark>)<br>
+				Very simple layout of one line: <img src="A2-Page02.png" width="300"></li>
+				<li>Include a back button somewhere on the page to return to index.html</li>
+			</ul>
+		</li>
+	<hr>
+	<p class="subHead">How I will be grading exercise...</p>
+		<ul>
+			<li>I will be using Chrome's Toggle Device Bar for Galaxy S5 in <strong>Landscape mode only</strong> </li>
+			<li>Remember, this is a <strong>mobile site</strong> so formatting and layout should reflect this; too much scrolling or whitespace will reduce your mark.</li>
+		</ul>
+	<hr>
+	<p class="subHead">What to submit...</p>
+	<ul>
+		<li><strong>ZIP the entire completed exercise folder</strong> and submit to the appropriate DropBox in SLATE by the Due Date indicated</li>
+		<li>Publish and include the <strong>URL</strong> to the site</li>
+		<li><strong>Remember:</strong> You have 3 days past the due date with 10% off per day to submit</li>
+		<br>
+		<li style="text-align: center;"><mark>Each assignment must be done individually.<br>I will be checking for copying especially if the assignments look similar and will file an academic integrity breach if necessary</mark></li><br>
+		<li style="text-align:center;"><mark>This is not an assignment that should be started the day it is due.<br>Since you have 2 weeks to complete the assignment, NO EXTENSIONS to the due date will be given.</li> 
+	</ul>
+	<hr>
+	<p class="subHead">Grading Rubric...</p>
+	<table id="assignmentTable">
+		<tr><th>Header and Footer</th><td>1</td></tr>
+		<tr><th>Main page (mobile), layout, formatting, JSON/AJAX, Class with Constructor and local storage; </th><td>5</td></tr>
+		<tr><th>Individual page setup (mobile), layout formatting, and local storage; </th><td>4</td></tr>
+		<tr><th>Not mobile (main page)</th><td>-2 over and above</td></tr>
+		<tr><th>Not published</th><td>-5 over and above</td></tr>
+	</table>
+</div>
+</body>
+</html>
