@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Contact!</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<h1 id="myTitle">Edit Your Contact!</h1>
+	<form action="#" th:action="@{/modify}" th:object="${contact}">
+		<table>
+			<tr>
+				<td><input type="hidden" name="id" th:field="*{id}" /></td>
+			</tr>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" name="name" th:field="*{name}" /></td>
+			</tr>
+			<tr >
+				<td colspan=2><br></td>
+			</tr>
+			<tr>
+				<td>Phone Number:</td>
+				<td><input type="text" name="phone" th:field="*{phone}" /></td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+				<td><input type="text" name="address" th:field="*{address}" /></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><input type="text" name="email" th:field="*{email}" /></td>
+			</tr>
+			<tr>
+				<td>Role:</td>
+				<td>
+					<select th:field="*{role}">
+						<option value="Admin">Admin</option>
+						<option value="Member">Member</option>
+						<option value="Guest">Guest</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="Edit Contact" />
+	</form>
+</body>
+</html>

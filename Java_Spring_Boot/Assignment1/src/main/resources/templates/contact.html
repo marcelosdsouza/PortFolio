@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Contacts</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<h1 id="myTitle">Add New Contacts</h1>
+	<form action="#" th:action="@{/add}" th:object="${contact}">
+		<table>
+			<tr>
+				<td><div>Name:</div></td>
+				<td><input type="text" th:field="*{name}" /></td>
+			</tr>
+			<tr>
+				<td colspan=2><br></td>
+			</tr>
+			<tr>
+				<td><div>Phone Number:</div></td>
+				<td><input type="text" th:field="*{phone}" /></td>
+			</tr>
+			<tr>
+				<td><div>Address:</div></td>
+				<td><input type="text" th:field="*{address}" /></td>
+			</tr>
+			<tr>
+				<td><div>Email:</div></td>
+				<td><input type="text" th:field="*{email}" /></td>
+			</tr>
+			<tr>
+				<td><div>Role:</div></td>
+				<td>
+					<select th:field="*{role}">
+						<option value="Admin">Admin</option>
+						<option value="Member">Member</option>
+						<option value="Guest">Guest</option>
+					</select>
+				</td>
+			</tr> 
+		</table>
+		<input type="submit" value="Add Contact" /> &emsp; <a
+			th:href="@{/usr/view}">View Contacts</a>
+	</form>
+	<div th:fragment="logout" sec:authorize="isAuthenticated()">
+		<form action="#" method="post" th:action="@{/logout}">
+			<input type="submit" value="Logout" />
+		</form>
+	</div>
+</body>
+</html>

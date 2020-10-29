@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Agenda</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1 id="myTitle">My Agenda</h1>
+	<table id="myAgenda">
+		<tr>
+			<th class="agendaHeading">Name</th>
+			<th class="agendaHeading">Phone Number</th>
+			<th class="agendaHeading">Address</th>
+			<th class="agendaHeading">Email</th>
+			<th class="agendaHeading">Role</th>
+		</tr>
+		<tr th:each="c : ${agenda}">
+			<td class="info" th:text="${c.name}"></td>
+			<td class="info" th:text="${c.phone}"></td>
+			<td class="info" th:text="${c.address}"></td>
+			<td class="info" th:text="${c.email}"></td>
+			<td class="info" th:text="${c.role}"></td>
+			<td class="info"><a href="" th:href="@{/edit/{id}(id=${c.id})}">EDIT</a></td>
+			<td class="info"><a href="" th:href="@{/delete/{id}(id=${c.id})}">DELETE</a></td>
+		</tr>
+	</table>
+	<a th:href="@{/}">Add More Contacts</a><br>
+	<form action="#" method="post" th:action="@{/logout}">
+			<input type="submit" value="Logout" />
+	</form>
+</body>
+</html>
